@@ -1148,7 +1148,7 @@ impl<'a, T:Encodable + ToOwned + ?Sized> Encodable for Cow<'a, T> {
     }
 }
 
-impl<'a, T: ?Sized> Decodable for Cow<'a, T>
+impl<'a, T: ?Sized + 'static> Decodable for Cow<'a, T>
     where T: ToOwned, T::Owned: Decodable
 {
     #[inline]
